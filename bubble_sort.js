@@ -5,13 +5,14 @@
 
 const bubbleSort = (arr) => {
   let swapped;
+  let sortedArr = [...arr];
 
   for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - i - 1; j++) {
-      swapped = false;
+    swapped = false;
 
-      if (arr[j] > arr[j + 1]) {
-        swap(arr, j, j + 1);
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (sortedArr[j] > sortedArr[j + 1]) {
+        swap(sortedArr, j, j + 1);
         swapped = true;
       }
     }
@@ -20,6 +21,8 @@ const bubbleSort = (arr) => {
       break;
     }
   }
+
+  return sortedArr;
 };
 
 const printArray = (arr) => {
@@ -39,7 +42,9 @@ const swap = (arr, i, j) => {
 const uSortedArray = [-18, 25, 9, 12, 0, 10, 100, 45];
 printArray(uSortedArray);
 
-bubbleSort(uSortedArray);
+const sortedArr = bubbleSort(uSortedArray);
 
 console.log('\n');
-printArray(uSortedArray);
+printArray(sortedArr);
+
+module.exports = bubbleSort;
