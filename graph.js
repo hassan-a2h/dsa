@@ -1,12 +1,13 @@
 // Implement Graph in js using adjacency list
 // The graph is considered to be a bi-directional Graph
+// Currently, only numbers/integers are supported as valid vertices
 
 function createGraph() {
-  let connections = [];
+  let connections = [];       // stores vertices and connections
   let totalVertices = 0;
   let edges = 0;
 
-  const addEdge = (v1, v2) => { // v1 stand for vertex1
+  const addEdge = (v1, v2) => {       // v1 stand for vertex1
     if (!connections.some(vertex => vertex.vertex === v1)) {
       addVertex(v1);
     }
@@ -38,6 +39,7 @@ function createGraph() {
     console.table(connections);
   }
 
+  // return only the methods that are required for use.
   return {
     addEdge, 
     displayGraph,
@@ -56,4 +58,5 @@ G1.addEdge(17, 19);
 
 G1.displayGraph();
 
+// In order to use same implementation in future
 export default createGraph;
